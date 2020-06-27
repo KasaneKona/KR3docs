@@ -1,0 +1,31 @@
+LCD uses the HD44780-compatible protocol.
+All 5 LCD panels are mapped into one logical display at the following addresses:
+Main display top: 00 - 07
+Main display bot: 40 - 47
+Knob 1 display: 08-0F
+Knob 2 display: 10-17
+Knob 3 display: 48-4F
+Knob 4 display: 50-57
+
+On a 40x2 display the layout appears as
+MMMMMMMM1111111122222222................
+MMMMMMMM3333333344444444................
+
+Example:
+If the R3 displays the following
++--------+  +--------+ +--------+ +--------+ +--------+
+|A-1:T1  |  |Cutoff1 | |ModDepth| |Harmonic| |MFx D/W |
+|Hypnotic|  +--------+ +--------+ +--------+ +--------+
++--------+
+
+then it would appear on a 40x2 display as
++----------------------------------------+
+|A-1:T1  Cutoff1 ModDepth                |
+|HypnoticHarmonicMFx D/W                 |
++----------------------------------------+
+
+The display uses character ROM code A00, i.e. Japanese character set.
+Only characters 20-7F are available in program names. These correspond to ASCII, except for 5C (, 7E and 7F.
+
+Characters 00 to 07 (repeated at 08 to 0F) are CGRAM, i.e. custom characters defined at runtime, as described in the HD44780 specification.
+So far I have only seen these used for the bold "KORG" logo on bootup.
