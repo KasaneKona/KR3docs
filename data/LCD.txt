@@ -25,7 +25,11 @@ then it would appear on a 40x2 display as
 +----------------------------------------+
 
 The display uses character ROM code A00, i.e. Japanese character set.
-Only characters 20-7F are available in program names. These correspond to ASCII, except for 5C (, 7E and 7F.
+Only characters 20-7F are available in program names.
+These correspond to ASCII, except for the following substitutions:
+5C = ¥ (U+00A5) - not present in editor!
+7E = → (U+2192)
+7F = ← (U+2190)
 
 Characters 00 to 07 (repeated at 08 to 0F) are CGRAM, i.e. custom characters defined at runtime, as described in the HD44780 specification.
-So far I have only seen these used for the bold "KORG" logo on bootup.
+So far I have only seen these used for the bold "KORG" logo on bootup and a "-1" character for note parameters.
